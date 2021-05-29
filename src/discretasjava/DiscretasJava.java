@@ -15,14 +15,14 @@ import java.util.Scanner;
 public class DiscretasJava {
 
     static Scanner sc = new Scanner(System.in);
-    static ArrayList<String> ruta = new ArrayList<>();
+    static ArrayList<String> ruta = new ArrayList<>(); //lista dinamica con el recorrido
     static int[][] matrixs;
-    static int[][] matrixCopy;
-    static int[] distancias;
-    static int ciudades;
-    static int distancia;
-    static int obj, pos;
-    static int recorrido = 0;
+    static int[][] matrixCopy; //en implementacion...
+    static int[] distancias; //vector de distancias desde una ciudad x con todas las que tiene adyacentes
+    static int ciudades; 
+    static int distancia; //sumatoria distancias recorrido
+    static int obj, pos; // ciudades a recorrer y posicion actual
+    static int recorrido = 0; //numero de ciudades recorridas
     static int distanciaVuelta;
 
     public static void main(String[] args) {
@@ -31,7 +31,7 @@ public class DiscretasJava {
         matrixs = new int[ciudades][ciudades];
         distancias = new int[ciudades];
         System.out.println("Ingrese Distancias: 0 no hay ruta (sugerencia 0<x<=9)");
-        for (int i = 0; i < ciudades; i++) {
+        for (int i = 0; i < ciudades; i++) { //matriz se rellena expecto cuando x→x
             for (int j = 0; j < ciudades; j++) {
                 if (i != j) {
                     System.out.println("Ciudad " + i + " → ciudad " + j);
@@ -40,14 +40,14 @@ public class DiscretasJava {
 
             }
         }
-        matrixCopy = new int[ciudades][ciudades];
+        matrixCopy = new int[ciudades][ciudades]; //mejoras pendientes
         for (int i = 0; i < ciudades; i++) {
             for (int j = 0; j < ciudades; j++) {
                 matrixCopy[i][j] = matrixs[i][j];
             }
         }
 
-        showMatrix(matrixs);
+        showMatrix(matrixs); // incova metodo de matriz de adyacencia
 
         System.out.println("Solucion mediante un algoritmo heuristico");
         System.out.println("partiendo de la ciudad 0");
@@ -69,7 +69,7 @@ public class DiscretasJava {
 
     }
 
-    static void camino(int[][] matrix) {
+    static void camino(int[][] matrix) { //metodo que realiza la ruta, la idea es que funcione en un futuro con un camino de regreso
         int max;
         int menor;
         recorrido = 0;
@@ -118,7 +118,7 @@ public class DiscretasJava {
 
     }
 //no esta habilitado el camino de vuelta 
-    static void caminoVuelta(int[][] matrix) {
+    static void caminoVuelta(int[][] matrix) { // estas lineas se van a borrar puesto que se puede utilizar la recursividad con un metodo ya definido.
         int max;
         int menor;
         recorrido = 0;
